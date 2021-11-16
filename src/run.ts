@@ -54,7 +54,7 @@ export const run = async (
         async (skip) => {
             const baseBranch = context.payload.pull_request?.base.ref;
 
-            if (!isInPR || !baseBranch) {
+            if (!baseBranch) {
                 skip();
             }
 
