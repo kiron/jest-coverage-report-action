@@ -51,14 +51,8 @@ export const run = async (
     const [isSwitched] = await runStage(
         'switchToBase',
         dataCollector,
-        async (skip) => {
-            const baseBranch = context.payload.pull_request?.base.ref;
-
-            if (!baseBranch) {
-                skip();
-            }
-
-            await switchBranch(baseBranch);
+        async () => {
+            await switchBranch('master');
         }
     );
 
